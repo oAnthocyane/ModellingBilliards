@@ -23,8 +23,10 @@ class Ball:
         self.ax, self.ay = cos(alpha) * self.ax - sin(alpha) * self.ay, sin(alpha) * self.ax + cos(alpha) * self.ay
 
     def calculate_velocity_with_acceleration(self):
-        self.vx, self.x = self.vx + self.ax * self.step_t, self.x + self.vx * self.step_t + self.ax * pow(self.step_t, 2) / 2
-        self.vy, self.y = self.vy + self.ay * self.step_t, self.y + self.vy * self.step_t + self.ay * pow(self.step_t, 2) / 2
+        self.vx = self.vx + self.ax * self.step_t
+        self.x = self.x + self.vx * self.step_t
+        self.vy = self.vy + self.ay * self.step_t
+        self.y = self.y + self.vy * self.step_t
 
     def check_and_move_on_table(self, length_table, width_table):
         if self.x <= self.r:
